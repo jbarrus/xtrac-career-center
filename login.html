@@ -72,91 +72,7 @@
             </div>
             <!-- End Login Form Logo -->
 
-            <div class="login-content radius-3 margin-b-30">
-                <!-- Login Form -->
-                <form class="login-form" action="index.html" method="post">
-                    <div class="margin-b-30">
-                        <h1 class="login-form-title">Login</h1>
-                        <p>Your credentials</p>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="text" autocomplete="on" placeholder="Username" name="username"/>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="password" autocomplete="on" placeholder="Password" name="password"/>
-                    </div>
-                    <div class="login-form-actions">
-                        <div class="checkbox pull-left">
-                            <input id="checkbox" type="checkbox" name="remember" value="1" checked>
-                            <label for="checkbox">
-                                Remember me
-                            </label>
-                        </div>
-                        <a href="javascript:;" id="forgot-password" class="login-form-forgot">Forgot Password?</a>
-                    </div>
-                    <button type="submit" class="btn-base-bg btn-base-sm btn-block radius-3 margin-b-30">Login</button>
-                    <p>
-                        Don't have account?
-                        <a href="javascript:;" id="go-to-signup-form-btn">Signup</a>
-                    </p>
-                </form>
-                <!-- End Login Form -->
-
-                <!-- Forgot Password Form -->
-                <form class="forgot-password-form display-none" action="index.html" method="post">
-                    <div class="margin-b-30">
-                        <h1 class="login-form-title">Forgot Password?</h1>
-                        <p>Enter your e-mail address to reset your password.</p>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="text" autocomplete="on" placeholder="Email" name="email"/>
-                    </div>
-                    <button type="submit" class="btn-base-bg btn-base-sm btn-block radius-3 margin-b-30">Reset Password</button>
-                    <div class="create-account">
-                        <p>
-                            Already have account?
-                            <a href="javascript:;" id="back-btn">Login</a>
-                        </p>
-                    </div>
-                </form>
-                <!-- End Forgot Password Form -->
-
-                <!-- Signup Form -->
-                <form class="signup-form display-none" action="index.html" method="post">
-                    <div class="margin-b-30">
-                        <h1 class="login-form-title">Signup</h1>
-                        <p>Join our community</p>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="text" id="name" placeholder="Name" name="name"/>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="text" id="email" placeholder="Email" name="email"/>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="text" autocomplete="on" id="username" placeholder="Username" name="username"/>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="password" autocomplete="on" id="signup_password" placeholder="Password" name="password"/>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="password" autocomplete="on" id="confirm_password" placeholder="Confirm Password" name="confirm_password"/>
-                    </div>
-                    <div class="margin-b-30">
-                        <p class="font-size-13">
-                            By signing up you agree to the
-                            <a href="javascript:;">Terms &amp; Conditions</a>
-                            and
-                            <a href="javascript:;">Privacy &amp; Policy</a>
-                        </p>
-                    </div>
-                    <button type="submit" id="signup-submit-btn" class="btn-base-bg btn-base-sm btn-block radius-3 margin-b-30">Create Account</button>
-                    <p>
-                        Already have account?
-                        <a href="javascript:;" id="back-to-login-form-btn">Login</a>
-                    </p>
-                </form>
-                <!-- End Signup Form -->
+            <div id="login-content">
             </div>
 
             <p class="color-white">&#169; 2016 XTRAC Solutions. All Rights Reserved.</p>
@@ -189,6 +105,10 @@
 <script type="text/javascript" src="assets/scripts/app.js"></script>
 <script type="text/javascript" src="assets/scripts/components/animsition.js"></script>
 <script type="text/javascript" src="assets/scripts/components/login-form.js"></script>
+
+<script src="https://cdn.auth0.com/js/lock-9.0.js"></script>
+<script src="assets/auth0-variables.js"> </script>
+<script src="assets/login.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!--========== END JAVASCRIPTS ==========-->
 </body>
