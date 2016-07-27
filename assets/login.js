@@ -5,10 +5,6 @@ $(document).ready(function() {
     AUTH0_DOMAIN
   );
 
-
-
-  var userProfile;
-
   var hash = lock.parseHash(window.location.hash);
 
   if (hash) {
@@ -24,6 +20,7 @@ $(document).ready(function() {
       retrieveProfile(id_token);
     }
   } else {
+    $('.wrapper').show();
     lock.show({
       authParams: {scope: 'openid'},
       container: 'login-content'
