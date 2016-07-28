@@ -1,5 +1,9 @@
 angular.module('profileApp', [])
-  .controller('ProfileController', function($scope) {
+  .constant('toastr', window.toastr)
+  .config(function(toastr) {
+    toastr.options.positionClass = 'toast-top-center';
+  })
+  .controller('ProfileController', function($scope, toastr) {
     var vm = this;
 
     vm.steps = {
@@ -10,6 +14,7 @@ angular.module('profileApp', [])
     };
     vm.profile = null;
 
+    vm.search = search;
     vm.stepCompleted = stepCompleted;
 
     activate();
@@ -21,6 +26,11 @@ angular.module('profileApp', [])
 
         stepCompleted('github');
       }
+    }
+
+    function search() {
+      console.log('search');
+      toastr.info('coming soon');
     }
 
     function stepCompleted(name) {
