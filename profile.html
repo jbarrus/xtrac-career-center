@@ -310,22 +310,26 @@
                         </div>
 
                         <!-- Comment Form v1 -->
-                        <form id="comment-form" class="comment-form-v1" action="#" method="get">
+                        <form id="comment-form" class="comment-form-v1" ng-submit="vm.submitContactForm()">
                             <div class="row">
                                 <div class="col-md-4 margin-b-30">
-                                    <input type="text" class="form-control comment-form-v1-input" placeholder="First Name" name="firstname" required>
+                                    <input type="text" ng-model="vm.contactForm.first"
+                                           class="form-control comment-form-v1-input" placeholder="First Name" name="firstname">
                                 </div>
                                 <div class="col-md-4 margin-b-30">
-                                    <input type="text" class="form-control comment-form-v1-input" placeholder="Last Name">
+                                    <input type="text" ng-model="vm.contactForm.last"
+                                           class="form-control comment-form-v1-input" placeholder="Last Name">
                                 </div>
                                 <div class="col-md-4 margin-b-30">
-                                    <input type="email" class="form-control comment-form-v1-input" placeholder="Email" name="email" required>
+                                    <input type="email" ng-model="vm.contactForm.email"
+                                           class="form-control comment-form-v1-input" placeholder="Email" name="email">
                                 </div>
                             </div>
                             <!--// end row -->
                             
                             <div class="margin-b-30">
-                                <textarea class="form-control comment-form-v1-input" rows="5" placeholder="Your message" name="textarea" required></textarea>
+                                <textarea class="form-control comment-form-v1-input"ng-model="vm.contactForm.email"  rows="5"
+                                          placeholder="Your message" name="textarea"></textarea>
                             </div>
                             <button type="submit" class="btn-base-bg btn-base-sm radius-3">Submit</button>
                         </form>

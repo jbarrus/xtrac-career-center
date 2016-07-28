@@ -14,8 +14,10 @@ angular.module('profileApp', [])
     };
     vm.profile = null;
 
+    vm.contactForm = {};
     vm.search = search;
     vm.stepCompleted = stepCompleted;
+    vm.submitContactForm = submitContactForm;
 
     activate();
 
@@ -47,6 +49,11 @@ angular.module('profileApp', [])
         return true;
       }
       return false;
+    }
+
+    function submitContactForm() {
+      toastr.success('Thanks for contacting us ' + vm.contactForm.first + ', we will get back to you soon!')
+      vm.contactForm = {};
     }
 
     Dropzone.options.resumeDropzone = {
