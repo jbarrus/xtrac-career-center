@@ -7,6 +7,7 @@ $(document).ready(function() {
         scope: 'openid'
       }
     },
+    rememberLastLogin: false,
     container: 'login-content',
     languageDictionary: {
       title: "Github Login"

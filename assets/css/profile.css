@@ -5,3 +5,15 @@
 .div[role=tabpanel] {
   padding: 10px;
 }
+
+.auth0-lock-header {
+  display: none;
+}
+
+.panel-group {
+  margin-bottom: 0;
+}
+
+.panel-body {
+  min-height: 157px;
+}
