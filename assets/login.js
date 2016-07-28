@@ -1,45 +1,23 @@
 $(document).ready(function() {
-  var lock = new Auth0Lock(
-    // All these properties are set in auth0-variables.js
-    AUTH0_CLIENT_ID,
-    AUTH0_DOMAIN
-  );
+  var lockOptions = {
+    auth: {
+      responseType: 'token',
+      redirectUrl: window.location.href.replace(/[\w-]+\.html/, 'login-result.html'),
+      params: {
+        scope: 'openid'
+      }
+    },
+    container: 'login-content',
+    languageDictionary: {
+      title: "Github Login"
+    },
+  };
 
-  var hash = lock.parseHash(window.location.hash);
+  console.log('lock options', lockOptions);
 
-  if (hash) {
-    if (hash.error) {
-      console.log("There was an error logging in", hash.error);
-    } else {
-      var id_token = hash.id_token;
+  var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, lockOptions);
 
-      console.log('got token', id_token);
-      //save the token in the session:
-      localStorage.setItem('xcc.id_token', id_token);
+  $('.wrapper').show();
 
-      retrieveProfile(id_token);
-    }
-  } else {
-    $('.wrapper').show();
-    lock.show({
-      authParams: {scope: 'openid'},
-      container: 'login-content'
-    });
-  }
-
-  function retrieveProfile(id_token) {
-    //retrieve the profile:
-    if (id_token) {
-      lock.getProfile(id_token, function (err, profile) {
-        if (err) {
-          return console.log('There was an error geting the profile: ' + err.message);
-        }
-        localStorage.setItem('xcc.profile', JSON.stringify(profile));
-
-        console.log('profile', profile);
-
-        window.location.href = window.location.href.replace(/login\.html.*/, 'profile.html');
-      });
-    }
-  }
+  lock.show();
 });

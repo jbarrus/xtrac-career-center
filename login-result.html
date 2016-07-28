@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<!-- HEAD -->
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>XTRAC | Career Center</title>
+    <meta name="keywords" content=" "/>
+    <meta name="description" content=" ">
+    <meta name="author" content=" ">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- END THEME -->
+
+    <!-- BEGIN JQUERY -->
+    <script type="text/javascript" src="assets/plugins/jquery.min.js"></script>
+    <!-- END JQUERY -->
+
+
+    <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+    <script src="assets/auth0-variables.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var lockOptions = {
+                auth: {
+                    redirectUrl: window.location.href.replace(/[\w-]+\.html/, 'login-result.html'),
+                    params: {
+                        scope: 'openid'
+                    }
+                },
+                container: 'login-content',
+                languageDictionary: {
+                    title: "Github Login"
+                }
+            };
+
+            var lock = new Auth0Lock(
+                    // All these properties are set in auth0-variables.js
+                    AUTH0_CLIENT_ID,
+                    AUTH0_DOMAIN,
+                    lockOptions
+            );
+
+            lock.on('authenticated', function(authResult) {
+                retrieveProfile(authResult.idToken, function(profile) {
+                    console.log('profile', profile);
+
+                    window.location.href = window.location.href.replace(/login\-result\.html.*/, 'profile.html');
+                });
+            });
+
+            lock.on('unrecoverable_error', function() {
+                console.log('unrecoverable_error');
+            });
+
+            lock.on('authorization_error', function() {
+                console.log('authorization_error');
+            });
+            
+            function retrieveProfile(idToken, cb) {
+                //retrieve the profile:
+                if (idToken) {
+                    lock.getProfile(idToken, function(err, profile) {
+                        if (err) {
+                            return console.log('There was an error geting the profile: ' + err.message);
+                        }
+                        profile = JSON.stringify(profile);
+                        localStorage.setItem('xcc.profile', profile);
+                        cb(profile);
+                    });
+                }
+            }
+        });
+    </script>
+
+</head>
+<body></body>
+
+</html>

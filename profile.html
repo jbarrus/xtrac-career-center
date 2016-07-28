@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" ng-app="profileApp">
 <!-- HEAD -->
 <head>
 <meta charset="utf-8"/>
@@ -33,6 +33,8 @@
 <!-- THEME -->
 <link href="assets/css/theme/dark.css" rel="stylesheet" type="text/css"/>
 <link href="assets/css/theme/base.css" rel="stylesheet" type="text/css" id="style-color"/>
+
+<link rel="stylesheet" href="assets/css/profile.css">
 <!-- END THEME -->
 
 <!-- BEGIN JQUERY -->
@@ -45,7 +47,7 @@
 </head>
 <!-- END HEAD -->
 <!-- BODY -->
-<body>
+<body ng-controller="ProfileController as vm">
 
 <!-- WRAPPER -->
 <div class="wrapper animsition">
@@ -165,7 +167,7 @@
                                             <div class="col-md-3">
                                                 <!-- Login Pages -->
                                                 <ul class="list-unstyled mega-menu-list">
-                                                    <li><span class="mega-menu-title">Git HUB</span></li>
+                                                    <li><span class="mega-menu-title">Github</span></li>
                                                     <li class="mega-menu-item"><a class="mega-menu-child" href="#">Assessment # 1</a></li>
                                                     <li class="mega-menu-item"><a class="mega-menu-child" href="#">Assessment # 2</a></li>
                                                     <li class="mega-menu-item"><a class="mega-menu-child" href="#">Assessment # 3</a></li>
@@ -235,18 +237,18 @@
                     <div class="tab-v4 margin-b-80">
                         <ul class="nav nav-tabs nav-tabs-left" role="tablist">
                             <li class="active" role="presentation">
-                                <a class="tab-v4-nav-color-one" href="#tab-v4-1" aria-controls="tab-v4-1" role="tab" data-toggle="tab">
+                                <a class="tab-v4-nav-color-three" href="#tab-v4-1" aria-controls="tab-v4-1" role="tab" data-toggle="tab">
+                                    Connect Github Account
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a class="tab-v4-nav-color-one" href="#tab-v4-2" aria-controls="tab-v4-2" role="tab" data-toggle="tab">
                                     Upload your Resume
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a class="tab-v4-nav-color-two" href="#tab-v4-2" aria-controls="tab-v4-2" role="tab" data-toggle="tab">
-                                    Upload your Portfolio
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a class="tab-v4-nav-color-three" href="#tab-v4-3" aria-controls="tab-v4-3" role="tab" data-toggle="tab">
-                                    Your Git HUB Link
+                                <a class="tab-v4-nav-color-two" href="#tab-v4-3" aria-controls="tab-v4-3" role="tab" data-toggle="tab">
+                                    Link to your Portfolio
                                 </a>
                             </li>
                             <li role="presentation">
@@ -257,121 +259,25 @@
                         </ul>
 
                         <!-- Tab panes -->
-                        <div class="tab-content">
+                        <div class="tab-content" style="padding-left: 20px">
                             <div role="tabpanel" class="tab-pane fade in active" id="tab-v4-1">
-                                <!-- Accordrion v5 -->
-                                <div class="accordion-v5">
-                                    <div class="panel-group" id="accordion-v5" role="tablist" aria-multiselectable="true">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingOne">
-                                                <h4 class="panel-title">
-                                                    <a role="button" data-toggle="collapse" href="#accordionV5CollapseOne" aria-expanded="false" aria-controls="accordionV5CollapseOne">
-                                                        Morbi sit amet urna quis lectus venenatis ultricies?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5CollapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
+                                <div class="panel-group" role="tablist">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab">
+                                            <h4 class="panel-title">Github Account</h4>
                                         </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingTwo">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5CollapseTwo" aria-expanded="false" aria-controls="accordionV5CollapseTwo">
-                                                        Duis tempus imperdiet duis?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5CollapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+                                        <div class="panel-body" role="tabpanel">
+                                            <div class="panel-body">
+                                                <div ng-show="vm.profile">
+                                                    <img width="230" height="230" ng-src="{{vm.profile.picture}}">
+                                                    <div>{{vm.profile.name}}</div>
+                                                    <div>{{vm.profile.nickname}}</div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingThree">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5CollapseThree" aria-expanded="false" aria-controls="accordionV5CollapseThree">
-                                                        Ellentesque sollicitudin dapibus nisl?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5CollapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+
+                                                <div id="login-content" ng-show="!vm.profile">
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingFour">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5CollapseFour" aria-expanded="false" aria-controls="accordionV5CollapseFour">
-                                                        Lorem ipsum dolor?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5CollapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingFive">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5CollapseFive" aria-expanded="false" aria-controls="accordionV5CollapseFive">
-                                                        Donec sed euismod odio?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5CollapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingSix">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5CollapseFive" aria-expanded="false" aria-controls="accordionV5CollapseFive">
-                                                        Lorem ipsum dolor?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5CollapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingSeven">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5CollapseFive" aria-expanded="false" aria-controls="accordionV5CollapseFive">
-                                                        Donec sed euismod odio?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5CollapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingEight">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5CollapseFive" aria-expanded="false" aria-controls="accordionV5CollapseFive">
-                                                        Tincidunt lorem malesuada sed euismod odio?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5CollapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
+
+                                                <div class="alert alert-success" id="step-github-success-message" style="display: none">Connected to Github Successfully!</div>
                                             </div>
                                         </div>
                                     </div>
@@ -379,169 +285,35 @@
                                 <!-- End Accordrion v5 -->
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="tab-v4-2">
-                                <!-- Accordrion v5 -->
-                                <div class="accordion-v5">
-                                    <div class="panel-group" id="accordion-v5-2" role="tablist" aria-multiselectable="true">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingOne">
-                                                <h4 class="panel-title">
-                                                    <a role="button" data-toggle="collapse" href="#accordionV5-2-CollapseOne" aria-expanded="false" aria-controls="accordionV5-2-CollapseOne">
-                                                        Morbi sit amet urna quis lectus venenatis ultricies?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-2-CollapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
+                                <div class="panel-group" role="tablist">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab">
+                                            <h4 class="panel-title">Upload Resume</h4>
                                         </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingTwo">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5-2-CollapseTwo" aria-expanded="false" aria-controls="accordionV5-2-CollapseTwo">
-                                                        Duis tempus imperdiet duis?
-                                                    </a>
-                                                </h4>
+                                        <div class="panel-body" role="tabpanel">
+                                            <div class="panel-body">
+                                                <form action="/file-upload"
+                                                      class="dropzone"
+                                                      id="resume-dropzone"></form>
                                             </div>
-                                            <div id="accordionV5-2-CollapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingThree">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5-2-CollapseThree" aria-expanded="false" aria-controls="accordionV5-2-CollapseThree">
-                                                        Ellentesque sollicitudin dapibus nisl?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-2-CollapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
+                                            <div class="alert alert-success" id="step-resume-success-message" style="display: none">Resume Uploaded Successfully!</div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- End Accordrion v5 -->
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="tab-v4-3">
-                                <!-- Accordrion v5 -->
-                                <div class="accordion-v5">
-                                    <div class="panel-group" id="accordion-v5-2" role="tablist" aria-multiselectable="true">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingOne">
-                                                <h4 class="panel-title">
-                                                    <a role="button" data-toggle="collapse" href="#accordionV5-3-CollapseOne" aria-expanded="false" aria-controls="accordionV5-3-CollapseOne">
-                                                        Morbi sit amet urna quis lectus venenatis ultricies?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-3-CollapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
+                                <div class="panel-group" role="tablist">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab">
+                                            <h4 class="panel-title">Your Portfolio</h4>
                                         </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingTwo">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5-3-CollapseTwo" aria-expanded="false" aria-controls="accordionV5-3-CollapseTwo">
-                                                        Duis tempus imperdiet duis?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-3-CollapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingThree">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5-3-CollapseThree" aria-expanded="false" aria-controls="accordionV5-3-CollapseThree">
-                                                        Ellentesque sollicitudin dapibus nisl?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-3-CollapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingFour">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5-3-CollapseFour" aria-expanded="false" aria-controls="accordionV5-3-CollapseFour">
-                                                        Lorem ipsum dolor?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-3-CollapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingFive">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5-3-CollapseFive" aria-expanded="false" aria-controls="accordionV5-3-CollapseFive">
-                                                        Donec sed euismod odio?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-3-CollapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingSix">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5-3-CollapseFive" aria-expanded="false" aria-controls="accordionV5-3-CollapseFive">
-                                                        Lorem ipsum dolor?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-3-CollapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingSeven">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5-3-CollapseFive" aria-expanded="false" aria-controls="accordionV5-3-CollapseFive">
-                                                        Donec sed euismod odio?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-3-CollapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingEight">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5-3-CollapseFive" aria-expanded="false" aria-controls="accordionV5-3-CollapseFive">
-                                                        Tincidunt lorem malesuada sed euismod odio?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-3-CollapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
+                                        <div class="panel-body" role="tabpanel">
+                                            <p>Strut your stuff - provide a link to some of your work!</p>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-2x fa-external-link" aria-hidden="true"></i></span>
+                                                <input type="text" class="form-control" placeholder="http://johnsmith.com"
+                                                       ng-model="vm.portfolio" ng-change="vm.stepCompleted('portfolio')">
                                             </div>
                                         </div>
                                     </div>
@@ -550,118 +322,17 @@
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="tab-v4-4">
                                 <!-- Accordrion v5 -->
-                                <div class="accordion-v5">
-                                    <div class="panel-group" id="accordion-v5-2" role="tablist" aria-multiselectable="true">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingOne">
-                                                <h4 class="panel-title">
-                                                    <a role="button" data-toggle="collapse" href="#accordionV5-4-CollapseOne" aria-expanded="false" aria-controls="accordionV5-4-CollapseOne">
-                                                        Morbi sit amet urna quis lectus venenatis ultricies?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-4-CollapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
+                                <div class="panel-group" role="tablist">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab">
+                                            <h4 class="panel-title">Your LinkedIn Profile</h4>
                                         </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingTwo">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5-4-CollapseTwo" aria-expanded="false" aria-controls="accordionV5-4-CollapseTwo">
-                                                        Duis tempus imperdiet duis?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-4-CollapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingThree">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5-4-CollapseThree" aria-expanded="false" aria-controls="accordionV5-4-CollapseThree">
-                                                        Ellentesque sollicitudin dapibus nisl?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-4-CollapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingFour">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5-4-CollapseFour" aria-expanded="false" aria-controls="accordionV5-4-CollapseFour">
-                                                        Lorem ipsum dolor?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-4-CollapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingFive">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5-4-CollapseFive" aria-expanded="false" aria-controls="accordionV5-4-CollapseFive">
-                                                        Donec sed euismod odio?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-4-CollapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingSix">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5-4-CollapseFive" aria-expanded="false" aria-controls="accordionV5-4-CollapseFive">
-                                                        Lorem ipsum dolor?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-4-CollapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingSeven">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5-4-CollapseFive" aria-expanded="false" aria-controls="accordionV5-4-CollapseFive">
-                                                        Donec sed euismod odio?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-4-CollapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingEight">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#accordionV5-4-CollapseFive" aria-expanded="false" aria-controls="accordionV5-4-CollapseFive">
-                                                        Tincidunt lorem malesuada sed euismod odio?
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="accordionV5-4-CollapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
-                                                <div class="panel-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-                                                </div>
+                                        <div class="panel-body" role="tabpanel">
+                                            <p>Provide a link to your LinkedIn profile page!</p>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-2x fa-linkedin-square" aria-hidden="true"></i></span>
+                                                <input type="text" class="form-control" placeholder="https://www.linkedin.com/in/johnsmith"
+                                                       ng-model="vm.linkedin" ng-change="vm.stepCompleted('linkedin')">
                                             </div>
                                         </div>
                                     </div>
@@ -719,30 +390,11 @@
                         <div class="blog-sidebar-content blog-sidebar-content-height scrollbar">
                             <!--Timeline v2 -->
                             <ul class="timeline-v2">
-                                <li class="timeline-v2-list-item">
-                                    <i class="timeline-v2-badge-icon radius-circle fa fa-check-circle"></i>
-                                    <small class="timeline-v2-news-date">10 Aug, 2016</small>
-                                    <h5 class="timeline-v2-news-title"><a href="#">Upload your resume.</a></h5>
-                                </li>
-                                <li class="timeline-v2-list-item">
-                                    <i class="timeline-v2-badge-icon radius-circle fa fa-check-circle"></i>
-                                    <small class="timeline-v2-news-date">10 Aug, 2016</small>
-                                    <h5 class="timeline-v2-news-title"><a href="#">Upload your Portfolio.</a></h5>
-                                </li>
-                                <li class="timeline-v2-list-item">
-                                    <i class="timeline-v2-badge-icon radius-circle fa fa-circle-thin"></i>
-                                    <small class="timeline-v2-news-date">10 Aug, 2016</small>
-                                    <h5 class="timeline-v2-news-title"><a href="#">Phasellus neque eros, finibus quis velit in, fringilla gravida est.</a></h5>
-                                </li>
-                                <li class="timeline-v2-list-item">
-                                    <i class="timeline-v2-badge-icon radius-circle fa fa-circle-thin"></i>
-                                    <small class="timeline-v2-news-date">10 Aug, 2016</small>
-                                    <h5 class="timeline-v2-news-title"><a href="#">Nunc efficitur auctor felis, et tempus libero commodo non.</a></h5>
-                                </li>
-                                <li class="timeline-v2-list-item">
-                                    <i class="timeline-v2-badge-icon radius-circle fa fa-circle-thin"></i>
-                                    <small class="timeline-v2-news-date">10 Aug, 2016</small>
-                                    <h5 class="timeline-v2-news-title"><a href="#">Phasellus neque eros, finibus quis velit in, fringilla gravida est.</a></h5>
+                                <li class="timeline-v2-list-item" ng-repeat="(stepName, step) in vm.steps">
+                                    <i class="timeline-v2-badge-icon radius-circle fa"
+                                    ng-class="step.completedOn ? 'fa-check-circle' : 'fa-circle-thin'"></i>
+                                    <small class="timeline-v2-news-date">{{step.completedOn ? (step.completedOn | date) : 'not yet completed'}}</small>
+                                    <h5 class="timeline-v2-news-title">{{step.name}}</h5>
                                 </li>
                                 <li class="clearfix" style="float: none;"></li>
                             </ul>
@@ -797,12 +449,15 @@
 
 <!--========== JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) ==========-->
 <!-- CORE PLUGINS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+
 <!--[if lt IE 9]>
 <script src="assets/plugins/html5shiv.js"></script>
 <script src="assets/plugins/respond.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="assets/plugins/jquery.migrate.min.js"></script>
 <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/plugins/dropzone.js"></script>
 <!-- END CORE PLUGINS -->
 
 <!-- PAGE LEVEL PLUGINS -->
@@ -824,7 +479,13 @@
 <script type="text/javascript" src="assets/scripts/components/comment-form.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 
+<script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+<script src="assets/auth0-variables.js"> </script>
+
 <script src="assets/app.js"></script>
+<script src="assets/profile.js"></script>
+<script src="assets/login.js"></script>
+
 
 <!--========== END JAVASCRIPTS ==========-->
 </body>
